@@ -19,30 +19,8 @@ export default async function handler(req, res) {
         console.log(`[Token] Generating token for: ${pathname}`);
 
         return {
-          allowedContentTypes: [
-            'image/jpeg',
-            'image/png', 
-            'image/gif',
-            'image/webp',
-            'image/svg+xml',
-            'video/mp4',
-            'video/webm',
-            'video/quicktime',
-            'application/pdf',
-            'application/zip',
-            'application/x-zip-compressed',
-            'application/msword',
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-            'application/vnd.ms-excel',
-            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            'application/vnd.ms-powerpoint',
-            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-            'text/plain',
-            'text/csv',
-            'audio/mpeg',
-            'audio/wav',
-            'audio/ogg',
-          ],
+          // Izinkan semua tipe file - tidak ada pembatasan content type
+          // Dengan menghilangkan allowedContentTypes, semua file bisa di-upload
           maximumSizeInBytes: 1024 * 1024 * 1024, // 1GB per file
           // tokenPayload bisa digunakan untuk tracking
           tokenPayload: JSON.stringify({
